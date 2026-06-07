@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#e11d48">
+  <title>{% block title %}我们的小屋{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  {% if not unlocked and request.endpoint not in ['couple', 'home', 'calculator_page', 'trash', 'restore_trash', 'permanent_delete', 'empty_trash_all', 'uploaded_file'] %}
+  <div class="lock-banner">请先完善双方情侣信息以解锁全部功能 → <a href="{{ url_for('couple') }}">去填写</a></div>
+  {% endif %}
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="{{ url_for('home') }}" class="logo">🏠 我们的小屋</a>
+      <nav class="nav-links">
+        <a href="{{ url_for('trash') }}" class="nav-icon" title="回收站">🗑</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="bottom-nav">
+    <a href="{{ url_for('home') }}" class="nav-item {% if request.endpoint == 'home' %}active{% endif %}">
+      <span class="nav-emoji">🏠</span><span>首页</span>
+    </a>
+    <a href="{{ url_for('messages') }}" class="nav-item {% if request.endpoint == 'messages' %}active{% endif %}">
+      <span class="nav-emoji">💌</span><span>留言</span>
+    </a>
+    <a href="{{ url_for('checkin') }}" class="nav-item {% if request.endpoint == 'checkin' %}active{% endif %}">
+      <span class="nav-emoji">✅</span><span>打卡</span>
+    </a>
+    <a href="{{ url_for('album') }}" class="nav-item {% if request.endpoint == 'album' %}active{% endif %}">
+      <span class="nav-emoji">📷</span><span>相册</span>
+    </a>
+    <a href="{{ url_for('bucket') }}" class="nav-item {% if request.endpoint == 'bucket' %}active{% endif %}">
+      <span class="nav-emoji">💯</span><span>百件事</span>
+    </a>
+    <a href="{{ url_for('couple') }}" class="nav-item {% if request.endpoint == 'couple' %}active{% endif %}">
+      <span class="nav-emoji">💑</span><span>情侣</span>
+    </a>
+  </nav>
+
+  <main class="main-content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="flash flash-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <div id="love-effect" class="love-effect hidden">
+    <div class="love-effect-text">💕 今天双方都打卡啦！💕</div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

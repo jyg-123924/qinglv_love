@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}留言板 · 我们的小屋{% endblock %}
+
+{% block content %}
+<h2 class="page-title">💌 留言板</h2>
+<p class="page-desc">记录想对 TA 说的话。</p>
+
+<div class="card">
+  <h3>发布留言</h3>
+  <form method="post" class="form">
+    <div class="form-group">
+      <label>留言内容 *</label>
+      <textarea name="content" rows="4" required placeholder="写下想对 TA 说的话..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>来自</label>
+      <select name="who" class="who-select">
+        <option value="1">{{ couple.person1_name }}</option>
+        <option value="2">{{ couple.person2_name }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">发布留言</button>
+  </form>
+</div>
+
+<h3 class="section-title">全部留言</h3>
+{% if items %}
+  {% for m in items %}
+  <div class="card message-card">
+    <div class="message-header">
+      <span class="message-author">{{ couple.person1_name if m.author == '1' else couple.person2_name }}</span>
+      <span class="message-time">{{ m.created_at[:16].replace('T', ' ') }}</span>
+    </div>
+    <div class="message-content">{{ m.content }}</div>
+    <form method="post" action="{{ url_for('delete_message', item_id=m.id) }}"
+          onsubmit="return confirm('确定移入回收站吗？')">
+      <button type="submit" class="btn btn-danger btn-sm">删除</button>
+    </form>
+  </div>
+  {% endfor %}
+{% else %}
+  <div class="empty">还没有留言，写下第一条吧~</div>
+{% endif %}
+{% endblock %}

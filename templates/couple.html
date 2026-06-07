@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}情侣信息 · 我们的小屋{% endblock %}
+
+{% block content %}
+<h2 class="page-title">💑 情侣信息</h2>
+<p class="page-desc">双方各自填写并保存基本信息，全部完善后解锁其他功能模块。</p>
+
+<div class="couple-grid">
+  {% for who, label in [('1', '一方'), ('2', '另一方')] %}
+  {% set person = couple.person1 if who == '1' else couple.person2 %}
+  <div class="card">
+    <div class="card-header">
+      <h3>{{ label }}{% if person.saved %} ✓{% endif %}</h3>
+      {% if person.saved %}<span class="badge badge-success">已保存</span>{% endif %}
+    </div>
+    <form method="post" enctype="multipart/form-data" class="form">
+      <input type="hidden" name="who" value="{{ who }}">
+      <div class="form-group">
+        <label>姓名 *</label>
+        <input type="text" name="name" value="{{ person.name }}" required placeholder="请输入姓名">
+      </div>
+      <div class="form-group">
+        <label>昵称</label>
+        <input type="text" name="nickname" value="{{ person.nickname }}" placeholder="爱称">
+      </div>
+      <div class="form-group">
+        <label>生日</label>
+        <input type="date" name="birthday" value="{{ person.birthday }}">
+      </div>
+      <div class="form-group">
+        <label>电话</label>
+        <input type="tel" name="phone" value="{{ person.phone }}" placeholder="手机号">
+      </div>
+      <div class="form-group">
+        <label>个人简介</label>
+        <textarea name="bio" rows="3" placeholder="介绍一下自己...">{{ person.bio }}</textarea>
+      </div>
+      <div class="form-group">
+        <label>头像</label>
+        {% if person.avatar %}
+        <img src="{{ url_for('uploaded_file', filename=person.avatar) }}" class="avatar-preview" alt="头像">
+        {% endif %}
+        <input type="file" name="avatar" accept="image/*">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">保存我的信息</button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% from "_macros.html" import who_select %}
+{% block title %}倒数日 · 我们的小屋{% endblock %}
+
+{% block content %}
+<h2 class="page-title">⏰ 倒数日</h2>
+<p class="page-desc">添加日程、纪念日、生日，查看还有多少天。</p>
+
+<div class="card">
+  <h3>添加倒数日</h3>
+  <form method="post" class="form">
+    <div class="form-group">
+      <label>标题 *</label>
+      <input type="text" name="title" required placeholder="例如：在一起100天">
+    </div>
+    <div class="form-group">
+      <label>日期 *</label>
+      <input type="date" name="date" required>
+    </div>
+    <div class="form-group">
+      <label>类型</label>
+      <select name="type">
+        <option value="anniversary">纪念日</option>
+        <option value="birthday">生日</option>
+        <option value="event">日程</option>
+      </select>
+    </div>
+    {{ who_select(couple=couple) }}
+    <button type="submit" class="btn btn-primary btn-block">添加</button>
+  </form>
+</div>
+
+<h3 class="section-title">全部倒数日</h3>
+{% if items %}
+  {% for item in items %}
+  <div class="card countdown-card">
+    <div class="countdown-row">
+      <div>
+        <strong>{{ item.title }}</strong>
+        <div class="meta">{{ item.date }} · {{ countdown_types.get(item.type, item.type) }}</div>
+      </div>
+      <div class="countdown-badge {% if item.days_left == 0 %}today{% elif item.days_left < 0 %}past{% else %}future{% endif %}">
+        {% if item.days_left > 0 %}{{ item.days_left }}<small>天</small>
+        {% elif item.days_left == 0 %}今天
+        {% else %}{{ -item.days_left }}<small>天前</small>{% endif %}
+      </div>
+    </div>
+    <form method="post" action="{{ url_for('delete_countdown', item_id=item.id) }}"
+          onsubmit="return confirm('确定移入回收站吗？')">
+      <button type="submit" class="btn btn-danger btn-sm">删除</button>
+    </form>
+  </div>
+  {% endfor %}
+{% else %}
+  <div class="empty">还没有倒数日，添加第一个重要日子吧~</div>
+{% endif %}
+{% endblock %}

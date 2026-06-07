@@ -1,0 +1,9 @@
+{% macro who_select(label='来自', couple=None) %}
+<div class="form-group">
+  <label>{{ label }}</label>
+  <select name="who" class="who-select">
+    <option value="1">{{ couple.person1_name if couple else 'TA' }}</option>
+    <option value="2">{{ couple.person2_name if couple else 'TA' }}</option>
+  </select>
+</div>
+{% endmacro %}

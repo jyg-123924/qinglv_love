@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}回收站 · 我们的小屋{% endblock %}
+
+{% block content %}
+<h2 class="page-title">🗑 回收站</h2>
+<p class="page-desc">已删除的内容可在此恢复或彻底删除。</p>
+
+{% if items %}
+<form method="post" action="{{ url_for('empty_trash_all') }}" class="trash-empty-all"
+      onsubmit="return confirm('确定清空回收站全部内容吗？此操作不可恢复！')">
+  <button type="submit" class="btn btn-danger btn-block">一键全部删除</button>
+</form>
+  {% for t in items %}
+  <div class="card trash-item">
+    <div class="trash-header">
+      <span class="badge">{{ type_labels.get(t.item_type, t.item_type) }}</span>
+      <span class="meta">删除于 {{ t.deleted_at[:16].replace('T', ' ') }}</span>
+    </div>
+    <div class="trash-preview">
+      {% if t.item_type == 'message' %}
+        <strong>留言：</strong>{{ t.data.content[:80] }}{% if t.data.content|length > 80 %}...{% endif %}
+      {% elif t.item_type == 'album' %}
+        <img src="{{ url_for('uploaded_file', filename=t.data.image) }}" class="trash-thumb" alt="">
+        {% if t.data.description %}<span>{{ t.data.description }}</span>{% endif %}
+      {% elif t.item_type == 'period' %}
+        <strong>{{ t.data.date }}</strong> {% if t.data.note %}— {{ t.data.note }}{% endif %}
+      {% elif t.item_type == 'countdown' %}
+        <strong>{{ t.data.title }}</strong> · {{ t.data.date }}
+      {% else %}
+        {{ t.data }}
+      {% endif %}
+    </div>
+    <div class="actions">
+      <form method="post" action="{{ url_for('restore_trash', trash_id=t.id) }}">
+        <button type="submit" class="btn btn-primary btn-sm">恢复</button>
+      </form>
+      <form method="post" action="{{ url_for('permanent_delete', trash_id=t.id) }}"
+            onsubmit="return confirm('彻底删除后无法恢复，确定吗？')">
+        <button type="submit" class="btn btn-danger btn-sm">彻底删除</button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+{% else %}
+  <div class="empty">回收站是空的</div>
+{% endif %}
+{% endblock %}

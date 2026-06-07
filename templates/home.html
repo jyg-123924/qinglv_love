@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block title %}首页 · 我们的小屋{% endblock %}
+
+{% block content %}
+<div class="hero-card">
+  <div class="hero-avatars">
+    <div class="hero-avatar-wrap">
+      {% if couple.person1.avatar %}
+      <img src="{{ url_for('uploaded_file', filename=couple.person1.avatar) }}" class="hero-avatar" alt="{{ couple.person1_name }}">
+      {% else %}
+      <div class="hero-avatar hero-avatar-placeholder">💗</div>
+      {% endif %}
+      <span class="hero-avatar-name">{{ couple.person1_name }}</span>
+    </div>
+    <span class="hero-heart">💕</span>
+    <div class="hero-avatar-wrap">
+      {% if couple.person2.avatar %}
+      <img src="{{ url_for('uploaded_file', filename=couple.person2.avatar) }}" class="hero-avatar" alt="{{ couple.person2_name }}">
+      {% else %}
+      <div class="hero-avatar hero-avatar-placeholder">💗</div>
+      {% endif %}
+      <span class="hero-avatar-name">{{ couple.person2_name }}</span>
+    </div>
+  </div>
+  <p class="hero-sub">记录我们的每一天</p>
+  {% if unlocked %}
+    <span class="badge badge-success">全部功能已解锁</span>
+  {% else %}
+    <span class="badge badge-warn">请先完善情侣信息</span>
+  {% endif %}
+</div>
+
+<div class="home-quick-actions">
+  <a href="{{ url_for('messages') }}" class="quick-action-card">
+    <span class="quick-action-icon">💌</span>
+    <span class="quick-action-name">留言板</span>
+  </a>
+  <a href="{{ url_for('checkin') }}" class="quick-action-card">
+    <span class="quick-action-icon">{% if unlocked and cal_data.today_both %}💕{% else %}✅{% endif %}</span>
+    <span class="quick-action-name">为爱打卡</span>
+  </a>
+</div>
+
+{% if unlocked %}
+{% if activities %}
+<div class="card notification-bar">
+  <div class="notification-header">📢 动态通知</div>
+  <ul class="notification-list">
+    {% for act in activities %}
+    <li class="notification-item">
+      <span class="notification-icon">{{ {'checkin':'✅','uncheckin':'↩️','message':'💌','album':'📷','countdown':'⏰','bucket_done':'💯','bucket_undone':'💯','period':'📅','calculator':'🔢'}.get(act.action, '🔔') }}</span>
+      <span class="notification-body">
+        <strong>{{ act.who_name }}</strong> {{ act.text }}
+        <span class="notification-time">{{ act.created_at[:16].replace('T', ' ') }}</span>
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% else %}
+<div class="card notification-bar notification-empty">
+  <div class="notification-header">📢 动态通知</div>
+  <p class="notification-placeholder">暂无动态，打卡、留言、上传照片后会显示在这里~</p>
+</div>
+{% endif %}
+
+<div class="card home-calendar">
+  <div class="calendar-nav">
+    <span class="calendar-title">{{ cal_year }} 年 {{ cal_month }} 月</span>
+  </div>
+  <div class="calendar calendar-compact">
+    <div class="cal-head">一</div><div class="cal-head">二</div><div class="cal-head">三</div>
+    <div class="cal-head">四</div><div class="cal-head">五</div><div class="cal-head">六</div><div class="cal-head">日</div>
+    {% for week in cal_weeks %}
+      {% for d in week %}
+      {% set ds = d.isoformat() %}
+      {% set info = cal_data.days.get(ds) %}
+      <div class="cal-day {% if d.month != cal_month %}other-month{% endif %} {% if info and info.both %}both-checked-day{% elif info %}partial-checked{% endif %} {% if ds == cal_data.today %}today-mark{% endif %}">
+        <span class="cal-num">{{ d.day }}</span>
+        {% if info %}
+        <span class="cal-dots">
+          {% if info.person1 %}<i class="dot p1"></i>{% endif %}
+          {% if info.person2 %}<i class="dot p2"></i>{% endif %}
+        </span>
+        {% endif %}
+      </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <div class="cal-legend">
+    <span><i class="dot p1"></i> {{ couple.person1_name }}</span>
+    <span><i class="dot p2"></i> {{ couple.person2_name }}</span>
+    <span class="legend-both">💕 双方同天打卡</span>
+  </div>
+  {% if cal_data.today_both %}
+  <div class="both-checked both-checked-sm">💕 今天双方都打卡啦！</div>
+  {% endif %}
+</div>
+{% endif %}
+
+<h2 class="section-title">功能模块</h2>
+<div class="module-grid">
+  <a href="{{ url_for('couple') }}" class="module-card">
+    <span class="module-icon">💑</span>
+    <span class="module-name">情侣信息</span>
+  </a>
+  <a href="{{ url_for('period') }}" class="module-card">
+    <span class="module-icon">📅</span>
+    <span class="module-name">例假记录</span>
+  </a>
+  <a href="{{ url_for('album') }}" class="module-card">
+    <span class="module-icon">📷</span>
+    <span class="module-name">恋爱相册</span>
+  </a>
+  <a href="{{ url_for('bucket') }}" class="module-card">
+    <span class="module-icon">💯</span>
+    <span class="module-name">一百件事</span>
+  </a>
+  <a href="{{ url_for('countdown') }}" class="module-card">
+    <span class="module-icon">⏰</span>
+    <span class="module-name">倒数日</span>
+  </a>
+  <a href="{{ url_for('calculator_page') }}" class="module-card">
+    <span class="module-icon">🔢</span>
+    <span class="module-name">计算器</span>
+  </a>
+</div>
+
+{% if countdowns %}
+<h2 class="section-title">近期倒数日</h2>
+{% for item in countdowns %}
+<div class="card card-compact">
+  <div class="countdown-row">
+    <span class="countdown-title">{{ item.title }}</span>
+    <span class="countdown-days {% if item.days_left == 0 %}today{% elif item.days_left < 0 %}past{% endif %}">
+      {% if item.days_left > 0 %}还有 {{ item.days_left }} 天
+      {% elif item.days_left == 0 %}就是今天！
+      {% else %}已过 {{ -item.days_left }} 天{% endif %}
+    </span>
+  </div>
+  <div class="meta">{{ item.date }} · {{ countdown_types.get(item.type, item.type) }}</div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

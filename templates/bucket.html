@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% from "_macros.html" import who_select %}
+{% block title %}恋爱必做一百件事 · 我们的小屋{% endblock %}
+
+{% block content %}
+<h2 class="page-title">💯 恋爱必做的一百件事</h2>
+
+<div class="card card-compact bucket-who">
+  {{ who_select('操作者', couple=couple) }}
+</div>
+
+<div class="progress-bar-wrap">
+  <div class="progress-bar" style="width: {{ (stats.done / stats.total * 100) if stats.total else 0 }}%"></div>
+</div>
+<p class="progress-text">已完成 {{ stats.done }} / {{ stats.total }} 件 · 还剩 {{ stats.left }} 件</p>
+
+<div class="bucket-list">
+  {% for item in items %}
+  <div class="card bucket-item {% if item.done %}done{% endif %}">
+    <div class="bucket-main">
+      <form method="post" class="toggle-form">
+        <input type="hidden" name="action" value="toggle">
+        <input type="hidden" name="item_id" value="{{ item.id }}">
+        <input type="hidden" name="who" class="who-hidden" value="1">
+        <button type="submit" class="check-btn {% if item.done %}checked{% endif %}">
+          {% if item.done %}✓{% else %}{% endif %}
+        </button>
+      </form>
+      <div class="bucket-info">
+        <span class="bucket-title">{{ loop.index }}. {{ item.title }}</span>
+        {% if item.done and item.done_at %}
+        <span class="meta">完成于 {{ item.done_at[:10] }}</span>
+        {% endif %}
+      </div>
+    </div>
+    <form method="post" class="note-form">
+      <input type="hidden" name="action" value="note">
+      <input type="hidden" name="item_id" value="{{ item.id }}">
+      <input type="text" name="note" value="{{ item.note }}" placeholder="添加备注..." class="note-input">
+      <button type="submit" class="btn btn-sm">保存</button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var sel = document.querySelector('.bucket-who .who-select');
+  if (sel) {
+    function syncWho() {
+      document.querySelectorAll('.who-hidden').forEach(function (el) {
+        el.value = sel.value;
+      });
+    }
+    sel.addEventListener('change', syncWho);
+    syncWho();
+  }
+});
+</script>
+{% endblock %}

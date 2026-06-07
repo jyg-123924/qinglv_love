@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% from "_macros.html" import who_select %}
+{% block title %}计算器 · 我们的小屋{% endblock %}
+
+{% block content %}
+<h2 class="page-title">🔢 计算器</h2>
+
+<div class="card card-compact">
+  {{ who_select('我是', couple=couple) }}
+</div>
+
+<div class="card calculator-wrap">
+  <div id="calc-process" class="calc-process"></div>
+  <input type="text" id="calc-display" class="calc-display" readonly value="0">
+  <div class="calc-grid">
+    <button class="calc-btn calc-fn" data-action="clear">C</button>
+    <button class="calc-btn calc-fn" data-action="back">⌫</button>
+    <button class="calc-btn calc-fn" data-action="percent">%</button>
+    <button class="calc-btn calc-op" data-action="op" data-value="/">÷</button>
+
+    <button class="calc-btn" data-action="num" data-value="7">7</button>
+    <button class="calc-btn" data-action="num" data-value="8">8</button>
+    <button class="calc-btn" data-action="num" data-value="9">9</button>
+    <button class="calc-btn calc-op" data-action="op" data-value="*">×</button>
+
+    <button class="calc-btn" data-action="num" data-value="4">4</button>
+    <button class="calc-btn" data-action="num" data-value="5">5</button>
+    <button class="calc-btn" data-action="num" data-value="6">6</button>
+    <button class="calc-btn calc-op" data-action="op" data-value="-">−</button>
+
+    <button class="calc-btn" data-action="num" data-value="1">1</button>
+    <button class="calc-btn" data-action="num" data-value="2">2</button>
+    <button class="calc-btn" data-action="num" data-value="3">3</button>
+    <button class="calc-btn calc-op" data-action="op" data-value="+">+</button>
+
+    <button class="calc-btn calc-zero" data-action="num" data-value="0">0</button>
+    <button class="calc-btn" data-action="dot">.</button>
+    <button class="calc-btn calc-eq" data-action="equals">=</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var sel = document.querySelector('.who-select');
+  if (sel) {
+    var saved = localStorage.getItem('qinglv_who');
+    if (saved) sel.value = saved;
+    sel.addEventListener('change', function () {
+      localStorage.setItem('qinglv_who', this.value);
+    });
+  }
+});
+</script>
+{% endblock %}

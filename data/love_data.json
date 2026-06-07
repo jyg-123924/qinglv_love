@@ -1,0 +1,792 @@
+{
+  "couple": {
+    "person1": {
+      "name": "金亚光",
+      "nickname": "A",
+      "birthday": "2000-01-01",
+      "phone": "",
+      "bio": "",
+      "avatar": "ecb359e4252b45e683ee54323270ce28.jpg",
+      "saved": true
+    },
+    "person2": {
+      "name": "白淑琪",
+      "nickname": "小白",
+      "birthday": "",
+      "phone": "",
+      "bio": "",
+      "avatar": "bbb19e51e3654df4a6d5501ae59d797d.jpg",
+      "saved": true
+    }
+  },
+  "checkins": {
+    "2026-06-07": {
+      "person1": true,
+      "person2": false
+    }
+  },
+  "period_records": [],
+  "messages": [],
+  "album": [
+    {
+      "id": "9c153653-dd81-4482-9353-3bd870b36df0",
+      "image": "c0ba74336dca471e96d6a00d1f9c14c5.jpg",
+      "description": "吃肯德基",
+      "created_at": "2026-06-08T00:26:17"
+    }
+  ],
+  "bucket_list": [
+    {
+      "id": "614cf377-531b-4e79-8c89-22a3155d4f91",
+      "title": "一起看日出",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "4d2dedff-f6a8-4cd5-927d-de0512ec4010",
+      "title": "一起看日落",
+      "done": true,
+      "done_at": "2026-06-07T21:23:54",
+      "note": "青岛"
+    },
+    {
+      "id": "4da05386-2a9b-48f7-ad73-43ba8e01987c",
+      "title": "一起淋雨",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "001edaa1-c480-499d-ab03-5851034c63e7",
+      "title": "一起堆雪人",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "26f80d85-4cc3-49c0-937d-be7e2ab5f465",
+      "title": "一起放烟花",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "95524418-2306-410b-8b96-8ab764891fdd",
+      "title": "一起坐摩天轮",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "e5dba8a0-ca42-4626-86dc-2d0502801587",
+      "title": "一起逛游乐园",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "385e8fbc-a3ba-468f-96ee-85d31b9e8775",
+      "title": "一起看电影",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "737be43e-5d7a-4853-95a7-22f746b9c45f",
+      "title": "一起K歌",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "cb4c0c4d-da70-4943-9039-a2b53304671d",
+      "title": "一起做饭",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "092e2af8-4b6e-4651-ab49-25f73f6ba363",
+      "title": "一起洗碗",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "32461048-79ae-4ea9-98ba-50224529ee45",
+      "title": "一起逛超市",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "57597ace-4159-4165-a212-70d272c4796e",
+      "title": "一起养一盆植物",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "42b6c3c2-16d7-4ec2-8a23-4a6f78527cf7",
+      "title": "一起拍情侣照",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "94fe8a11-74b2-4c57-9154-4c02f6605803",
+      "title": "一起穿情侣装",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "8709166a-8174-4a6b-b261-fe6bf13efca7",
+      "title": "一起写情书",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "8eeab466-0c76-4a81-942a-fa46b956e558",
+      "title": "一起录一段视频",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "0d851771-d27a-41c8-af05-2c8611bd39b6",
+      "title": "一起做手工",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "d7af0374-68c8-453f-8d6d-896f10c3221a",
+      "title": "一起画画",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "c461d557-7444-4fb3-a7d1-d0c45c1d35c9",
+      "title": "一起拼图",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "a442f2db-9490-4d8a-833b-6b7cf3863457",
+      "title": "一起去海边",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "ec9067cb-87ac-4eb3-9980-1750b774dce5",
+      "title": "一起去爬山",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "d0d52924-9d0a-42e2-80b7-6d61ee0a36a9",
+      "title": "一起去露营",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "0b2652d4-5494-443e-aac6-07045069b150",
+      "title": "一起去旅行",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "28993040-ff0b-43d3-900f-5fac8e527e70",
+      "title": "一起坐高铁",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "19da3115-9e23-4c19-85e3-3fb2863f8be1",
+      "title": "一起坐飞机",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "dabbe74f-7a65-4c13-8445-b0f4d7eb9be8",
+      "title": "一起骑单车",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "20464b83-6110-4279-911f-39c108666d22",
+      "title": "一起散步",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "8ec3e844-605f-4617-b230-9a69ddff252d",
+      "title": "一起跑步",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "f8de5099-324f-45d1-bd76-1b50fd6934bb",
+      "title": "一起健身",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "2511f208-c5d6-4720-b4e8-9fef8c56869d",
+      "title": "一起泡温泉",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "faf5b576-1549-4f96-80c5-f6e199d162c6",
+      "title": "一起游泳",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "5f0c2022-a27c-402d-b91b-a47a3e60f954",
+      "title": "一起滑冰",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "da1b3688-d460-4eb2-a3c7-08593cc61735",
+      "title": "一起滑雪",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "6085eef8-4879-43ad-a4e2-b75de5e5c0ca",
+      "title": "一起打羽毛球",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "04443ed6-121e-4bca-96f6-6c85135da1f6",
+      "title": "一起打游戏",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "eddf15e0-288e-4df3-8141-a0fe65d9b32b",
+      "title": "一起下象棋",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "df7757b2-66ae-4ea9-8a3b-bc31015c392c",
+      "title": "一起逛博物馆",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "8de975dd-9dea-4a03-871c-9ef0e8c13bcf",
+      "title": "一起逛书店",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "4f871692-620c-4fd6-978d-ad12c7916fc0",
+      "title": "一起听演唱会",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "f998091a-633d-4a45-8d24-4b96eaefa6b7",
+      "title": "一起过生日",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "e9f7315d-e9e7-4d9a-a12c-c4f13defdee1",
+      "title": "一起过情人节",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "6069b8d5-5dda-408d-b17a-03c82116b5ca",
+      "title": "一起过圣诞节",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "73c9ba5a-0cb3-4a9f-8503-539fd4e17f4e",
+      "title": "一起跨年",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "b7a84f37-2c82-4906-aee9-6e07272989af",
+      "title": "一起许愿",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "408a36bd-a781-466f-a9de-9f7783f55334",
+      "title": "一起养宠物",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "cc850a89-118d-406f-a4a9-d7ce0fe482df",
+      "title": "一起给宠物取名",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "29164470-63ac-4ce2-92bf-73a4019e3069",
+      "title": "一起布置房间",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "7b607387-4420-40ce-81bc-12d9eb8c4cd5",
+      "title": "一起买家具",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "237b34d6-f663-4b01-ba79-092bafb697c5",
+      "title": "一起贴墙纸",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "b363e281-0193-45b3-86a1-c7b5f127da4c",
+      "title": "一起种花",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "a2809d11-4fe0-4a8e-b421-20732527dd38",
+      "title": "一起摘草莓",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "e3aef2b6-be1b-44c4-8742-4a25005df33a",
+      "title": "一起钓鱼",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "45fb62e4-686d-470e-ba98-0768c0b77929",
+      "title": "一起烧烤",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "d02a5b99-c131-4932-a565-e2549cfa9702",
+      "title": "一起野餐",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "5119abcf-7e3b-4086-af0d-e7aef83fa64b",
+      "title": "一起喝同一杯奶茶",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "46aa2e17-6f56-42f5-8701-468d02feeec1",
+      "title": "一起尝试新餐厅",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "f714ede4-dc80-47e4-96a8-25cfbe3d0243",
+      "title": "一起学做甜点",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "5b35febc-3f43-466d-bb01-2a4eae67afb8",
+      "title": "一起包饺子",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "f588b64d-46fd-4948-aa5e-a3c896f8d312",
+      "title": "一起火锅",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "a6bcb91e-b295-4fdf-b228-100a74cb2850",
+      "title": "一起深夜聊天",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "4a3a4ac7-f36a-4e19-9b62-6d9957b18b10",
+      "title": "一起说晚安",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "f083a639-8792-45c2-9fad-b62f9720b239",
+      "title": "一起说早安",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "bb5ecea5-36cc-4637-bfbb-6172b84032da",
+      "title": "一起赖床",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "49bab27b-7f13-41d7-b4fa-a54f77c4eab2",
+      "title": "一起赖在沙发",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "a8961781-6138-4951-8f31-db094680c0ef",
+      "title": "一起追剧",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "dbec6b39-08b1-4c08-8103-689ba8e1a9d9",
+      "title": "一起追番",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "bc2e4c5a-4971-4e05-9df1-432cf68d7ef1",
+      "title": "一起读一本书",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "529d67ba-2228-4e43-98a8-d3af8dc462d4",
+      "title": "一起学一门语言",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "2d515b0e-2668-4514-af69-7ab5f5b9f09a",
+      "title": "一起上课",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "b4a34ffe-b4b1-4621-ad10-e59ddb0c8b3d",
+      "title": "一起见家长",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "733a5122-ae63-4025-a9e7-29d30a22b66c",
+      "title": "一起见朋友",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "40c31757-efa7-4243-a1b7-f499eaf00939",
+      "title": "一起参加婚礼",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "26f2b722-bda7-4ab9-9b00-ea620e8b82e5",
+      "title": "一起拍全家福",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "92094d92-44c1-4e31-8468-a03ac5afc3f7",
+      "title": "一起存共同相册",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "06379db1-a644-4c3b-8274-1b8716de8053",
+      "title": "一起制定计划",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "e323a734-7cc9-47e6-81d3-959183ac351c",
+      "title": "一起完成目标",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "d946498d-0e22-4779-8d2e-fbf05caf9ae7",
+      "title": "一起存钱",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "db749b93-829c-4805-8919-6df86f0dd8ac",
+      "title": "一起理财",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "2cf8f194-5194-4cad-bef9-5bb3200ddb1f",
+      "title": "一起买房",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "5ccbe5b4-8451-4d71-ab5f-c453c928d698",
+      "title": "一起装修",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "4ba8524c-ab73-4a14-ad01-a846e34dc323",
+      "title": "一起选窗帘",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "cc16b485-adcc-40e7-a2fe-b17e2a35065c",
+      "title": "一起选床单",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "a3f0eb13-4dd7-4a52-af6e-87b387f53526",
+      "title": "一起买礼物",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "e9d3b88e-ce54-4f83-b874-d3c7f0220535",
+      "title": "一起写愿望清单",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "5a968df5-eed6-460b-b22f-f2f06418a26a",
+      "title": "一起道歉",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "343b98b4-1ccc-4cbb-b75a-b05af81e9086",
+      "title": "一起和好",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "c1870708-b1ec-4999-98c7-a742fdd5ea17",
+      "title": "一起拥抱",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "749cf263-01b8-492b-9512-89a5485fb1b9",
+      "title": "一起牵手",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "262a15fb-fff4-44ad-bc8f-ac1e73312f21",
+      "title": "一起接吻",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "dc70970b-eb4d-4283-a7ca-004bc091db7e",
+      "title": "一起说我爱你",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "bad13a6f-da68-4d27-b025-3e40388d54c0",
+      "title": "一起规划未来",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "6b96ccd9-76d9-4b55-8866-9d3d703adf6f",
+      "title": "一起养孩子",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "4b8a5d28-730c-4071-8b5b-cb20ef09db1d",
+      "title": "一起变老",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "232e52db-a6c3-44c2-a577-63e0d0f5f117",
+      "title": "一起白头",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "3f586819-d1b1-42f6-be01-78f1bd9d9075",
+      "title": "一起回忆初遇",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "bb8d51da-ffa1-4e5d-b977-16c5f6ff17c8",
+      "title": "一起重走第一次约会路线",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "6175ed0d-2a36-4e85-b30e-0aaa28ee82c4",
+      "title": "一起拍100张合照",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "c887cdc4-1c20-42ca-af80-96abda6ff33d",
+      "title": "一起录100条语音",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    },
+    {
+      "id": "6ff53e18-41b6-4b2c-ab6f-ffb29e993f9e",
+      "title": "一起完成这份清单",
+      "done": false,
+      "done_at": "",
+      "note": ""
+    }
+  ],
+  "countdowns": [],
+  "activities": [
+    {
+      "id": "0c10ddd3-3f18-4572-a68b-b92cb4f4912e",
+      "who": "1",
+      "action": "period",
+      "detail": "2026-06-19",
+      "created_at": "2026-06-08T00:27:14"
+    },
+    {
+      "id": "74eefb4d-62fb-4c9b-b992-4b4ed67f955b",
+      "who": "1",
+      "action": "calculator",
+      "detail": "",
+      "created_at": "2026-06-08T00:26:43"
+    },
+    {
+      "id": "83efb163-8543-42db-ad7e-77c8d1671985",
+      "who": "1",
+      "action": "album",
+      "detail": "吃肯德基",
+      "created_at": "2026-06-08T00:26:17"
+    },
+    {
+      "id": "7891185c-0328-4de2-9328-cd23d3ef6377",
+      "who": "1",
+      "action": "period",
+      "detail": "2026-06-08",
+      "created_at": "2026-06-08T00:16:32"
+    },
+    {
+      "id": "7e601ca8-8fdc-4328-bf25-90e40d98b886",
+      "who": "1",
+      "action": "countdown",
+      "detail": "test",
+      "created_at": "2026-06-08T00:16:32"
+    },
+    {
+      "id": "fa38f7a5-67c8-405a-bba7-11788812f761",
+      "who": "1",
+      "action": "bucket_done",
+      "detail": "一起看日落",
+      "created_at": "2026-06-07T21:23:54"
+    },
+    {
+      "id": "3ae840be-996c-424f-9aec-09b87f00280b",
+      "who": "1",
+      "action": "checkin",
+      "detail": "2026-06-07",
+      "created_at": "2026-06-07T12:00:00"
+    }
+  ]
+}

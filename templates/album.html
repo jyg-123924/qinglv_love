@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "_macros.html" import who_select %}
+{% block title %}恋爱相册 · 我们的小屋{% endblock %}
+
+{% block content %}
+<h2 class="page-title">📷 恋爱相册</h2>
+<p class="page-desc">上传照片并添加文字描述，珍藏美好瞬间。</p>
+
+<div class="card">
+  <h3>上传照片</h3>
+  <form method="post" enctype="multipart/form-data" class="form">
+    <div class="form-group">
+      <label>选择图片 *</label>
+      <input type="file" name="image" accept="image/*" required>
+    </div>
+    <div class="form-group">
+      <label>文字描述</label>
+      <textarea name="description" rows="3" placeholder="这张照片的故事..."></textarea>
+    </div>
+    {{ who_select('上传者', couple=couple) }}
+    <button type="submit" class="btn btn-primary btn-block">上传</button>
+  </form>
+</div>
+
+<h3 class="section-title">相册</h3>
+{% if items %}
+<div class="album-grid">
+  {% for item in items %}
+  <div class="card album-item">
+    <img src="{{ url_for('uploaded_file', filename=item.image) }}" alt="恋爱照片" loading="lazy">
+    {% if item.description %}
+    <p class="album-desc">{{ item.description }}</p>
+    {% endif %}
+    <div class="meta">{{ item.created_at[:16].replace('T', ' ') }}</div>
+    <form method="post" action="{{ url_for('delete_album', item_id=item.id) }}"
+          onsubmit="return confirm('确定移入回收站吗？')">
+      <button type="submit" class="btn btn-danger btn-sm">删除</button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+  <div class="empty">相册还是空的，上传第一张照片吧~</div>
+{% endif %}
+{% endblock %}

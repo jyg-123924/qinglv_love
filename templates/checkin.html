@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}为爱打卡 · 我们的小屋{% endblock %}
+
+{% block extra_head %}
+{% if data.today_both %}
+<script>document.addEventListener('DOMContentLoaded', () => triggerLoveEffect());</script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h2 class="page-title">✅ 每天为爱打卡</h2>
+<p class="page-desc">双方在同一天都打卡时，将触发爱的特效 💕（再次点击可取消打卡）</p>
+
+<div class="card checkin-today">
+  <h3>今日打卡 · {{ data.today }}</h3>
+  <div class="checkin-status">
+    <div class="checkin-person {% if data.today_info.person1 %}done{% endif %}">
+      <span>{{ couple.person1_name }}</span>
+      <span>{% if data.today_info.person1 %}✅ 已打卡{% else %}⏳ 未打卡{% endif %}</span>
+    </div>
+    <div class="checkin-person {% if data.today_info.person2 %}done{% endif %}">
+      <span>{{ couple.person2_name }}</span>
+      <span>{% if data.today_info.person2 %}✅ 已打卡{% else %}⏳ 未打卡{% endif %}</span>
+    </div>
+  </div>
+  {% if data.today_both %}
+  <div class="both-checked">💕 今天双方都打卡啦！</div>
+  {% endif %}
+  <div class="checkin-actions">
+    <form method="post">
+      <input type="hidden" name="who" value="1">
+      <button type="submit" class="btn {% if data.today_info.person1 %}btn-danger{% else %}btn-primary{% endif %}">
+        {% if data.today_info.person1 %}{{ couple.person1_name }} 取消打卡{% else %}{{ couple.person1_name }} 打卡{% endif %}
+      </button>
+    </form>
+    <form method="post">
+      <input type="hidden" name="who" value="2">
+      <button type="submit" class="btn {% if data.today_info.person2 %}btn-danger{% else %}btn-secondary{% endif %}">
+        {% if data.today_info.person2 %}{{ couple.person2_name }} 取消打卡{% else %}{{ couple.person2_name }} 打卡{% endif %}
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <div class="calendar-nav">
+    <a href="{{ url_for('checkin', year=prev_year, month=prev_month) }}" class="btn btn-sm">◀</a>
+    <span class="calendar-title">{{ year }} 年 {{ month }} 月</span>
+    <a href="{{ url_for('checkin', year=next_year, month=next_month) }}" class="btn btn-sm">▶</a>
+  </div>
+  <div class="calendar">
+    <div class="cal-head">一</div><div class="cal-head">二</div><div class="cal-head">三</div>
+    <div class="cal-head">四</div><div class="cal-head">五</div><div class="cal-head">六</div><div class="cal-head">日</div>
+    {% for week in weeks %}
+      {% for d in week %}
+      {% set ds = d.isoformat() %}
+      {% set info = data.days.get(ds) %}
+      <div class="cal-day {% if d.month != month %}other-month{% endif %} {% if info and info.both %}both-checked-day{% elif info %}partial-checked{% endif %} {% if ds == data.today %}today-mark{% endif %}">
+        <span class="cal-num">{{ d.day }}</span>
+        {% if info %}
+        <span class="cal-dots">
+          {% if info.person1 %}<i class="dot p1"></i>{% endif %}
+          {% if info.person2 %}<i class="dot p2"></i>{% endif %}
+        </span>
+        {% endif %}
+      </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <div class="cal-legend">
+    <span><i class="dot p1"></i> {{ couple.person1_name }}</span>
+    <span><i class="dot p2"></i> {{ couple.person2_name }}</span>
+    <span class="legend-both">💕 双方同天打卡</span>
+  </div>
+</div>
+{% endblock %}
