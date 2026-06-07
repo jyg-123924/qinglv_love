@@ -322,10 +322,11 @@ def _local_ip() -> str:
 
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
     ip = _local_ip()
     print("=" * 52)
     print("  我们的小屋 已启动")
-    print("  本机访问: http://127.0.0.1:5000")
-    print(f"  手机访问: http://{ip}:5000  (需同一 WiFi)")
+    print(f"  本机访问: http://127.0.0.1:{port}")
+    print(f"  手机访问: http://{ip}:{port}  (需同一 WiFi)")
     print("=" * 52)
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=True)
